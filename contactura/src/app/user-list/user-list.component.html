@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<section>
+    <div class="titulo">
+        <span>
+            Usuários
+        </span>
+    </div>
+</section>
+
+<section>
+    <div class="button_new_user">
+        <button mat-raised-button color="primary" (click)="goToCreate()" ><mat-icon>add</mat-icon>Novo Usuário</button>
+    </div>    
+</section>
+
+<section>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td data-label="Nome">{{user.name}}</td>
+                    <td data-label="Email">{{user.username}}</td>
+                    <td data-label="Status">{{user.admin}}</td>
+                    <td data-label="Menu"> 
+                        <button mat-raised-button style="margin-right: 5px;" color="accent" (click)="editUser(user)"><mat-icon>build</mat-icon>Editar</button>
+                        <button mat-raised-button color="warn" (click)="deleteUser(user.id)"><mat-icon>restore_from_trash</mat-icon>Deletar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

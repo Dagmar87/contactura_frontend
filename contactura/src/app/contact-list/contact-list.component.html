@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<section>
+    <div class="titulo">
+        <span>
+            Contatos
+        </span>
+    </div>
+</section>
+<section>
+    <div class="button_new_contact">
+        <button mat-raised-button color="primary" (click)="goToCreate()" ><mat-icon>add</mat-icon>Novo Contato</button>
+    </div>    
+</section>
+<section>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Fone</th>
+                    <th scope="col">Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contact of contactList">
+                    <td data-label="Nome">{{contact.name}}</td>
+                    <td data-label="Email">{{contact.email}}</td>
+                    <td data-label="Fone">{{contact.phone}}</td>
+                    <td data-label="Menu"> 
+                        <button mat-raised-button style="margin-right: 5px;" color="accent" (click)="editContact(contact)"><mat-icon>build</mat-icon>Editar</button>
+                        <button mat-raised-button color="warn" (click)="deleteContact(contact.id)"><mat-icon>restore_from_trash</mat-icon>Deletar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

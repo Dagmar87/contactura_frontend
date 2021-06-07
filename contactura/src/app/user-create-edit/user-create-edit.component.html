@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<section>
+    <div class="title">
+        <h1>Cadastar Novo Usuário</h1>
+    </div>
+</section>
+
+<section>
+    <form class="container" [formGroup]="userForm">
+        <div class="col-2">
+            <div class="item">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="form-control" formControlName="username">
+            </div>
+            <div class="item">
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" class="form-control" formControlName="password">
+            </div>            
+        </div>
+
+        <div class="col-2">
+            <div class="item">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" class="form-control" formControlName="name">
+            </div>
+            <div class="item">
+                <input type="checkbox" name="administrador" class="form-control" formControlName="admin">
+                <label for="administrador">Adminstrador?</label>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px;" [ngStyle]="{'display': user === null ? 'block' : 'none' }">
+            <button mat-raised-button color="primary" (click)="createUser()">Salvar Usuário</button>
+        </div>        
+
+        <div style="margin-top: 10px;" [ngStyle]="{'display': user !== null ? 'block' : 'none' }">
+            <button mat-raised-button color="primary" (click)="updateUser()">Editar Usuário</button>
+        </div>     
+
+    </form>    
+</section>
